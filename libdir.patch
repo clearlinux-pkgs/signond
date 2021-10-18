@@ -1,0 +1,11 @@
+--- signond-VERSION_8.60/common-project-config.pri~	2018-09-17 16:28:27.000000000 +0000
++++ signond-VERSION_8.60/common-project-config.pri	2021-10-18 15:37:32.741952656 +0000
+@@ -59,7 +59,7 @@
+ 
+ linux-g++-64|linux-icc-64: INSTALL_LIBDIR = $${INSTALL_PREFIX}/lib64
+ else: linux-g++-32|linux-icc-32: INSTALL_LIBDIR = $${INSTALL_PREFIX}/lib32
+-else: INSTALL_LIBDIR = $${INSTALL_PREFIX}/lib
++else: INSTALL_LIBDIR = $${INSTALL_PREFIX}/lib64
+ 
+ # default library directory can be overriden by defining LIBDIR when
+ # running qmake

@@ -4,7 +4,7 @@
 #
 Name     : signond
 Version  : ersion.8.60
-Release  : 2
+Release  : 4
 URL      : https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.60/signond-VERSION_8.60.tar.gz
 Source0  : https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.60/signond-VERSION_8.60.tar.gz
 Summary  : SignOn Framework client library development package
@@ -22,6 +22,7 @@ BuildRequires : pkgconfig(Qt5DBus)
 BuildRequires : pkgconfig(Qt5Gui)
 BuildRequires : pkgconfig(Qt5Network)
 BuildRequires : qttools-dev
+Patch1: libdir.patch
 
 %description
 SignOn daemon
@@ -90,6 +91,7 @@ license components for the signond package.
 %prep
 %setup -q -n signond-VERSION_8.60
 cd %{_builddir}/signond-VERSION_8.60
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -102,14 +104,11 @@ test -r config.log && cat config.log
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1634569542
+export SOURCE_DATE_EPOCH=1634572155
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/signond
 cp %{_builddir}/signond-VERSION_8.60/COPYING %{buildroot}/usr/share/package-licenses/signond/4df5d4b947cf4e63e675729dd3f168ba844483c7
 %make_install
-## install_append content
-mv %{buildroot}/usr/lib/*.so* %{buildroot}/usr/lib64/
-## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -195,8 +194,8 @@ mv %{buildroot}/usr/lib/*.so* %{buildroot}/usr/lib64/
 /usr/include/signond/signonsessioncoretools.h
 /usr/include/signond/signontrace.h
 /usr/include/signond/signonui_interface.h
-/usr/lib/cmake/SignOnQt5/SignOnQt5Config.cmake
-/usr/lib/cmake/SignOnQt5/SignOnQt5ConfigVersion.cmake
+/usr/lib64/cmake/SignOnQt5/SignOnQt5Config.cmake
+/usr/lib64/cmake/SignOnQt5/SignOnQt5ConfigVersion.cmake
 /usr/lib64/libsignon-extension.so
 /usr/lib64/libsignon-plugins-common.so
 /usr/lib64/libsignon-plugins.so
@@ -453,10 +452,6 @@ mv %{buildroot}/usr/lib/*.so* %{buildroot}/usr/lib64/
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/signon/libexampleplugin.so
-/usr/lib/signon/libpasswordplugin.so
-/usr/lib/signon/libssotest2plugin.so
-/usr/lib/signon/libssotestplugin.so
 /usr/lib64/libsignon-extension.so.1
 /usr/lib64/libsignon-extension.so.1.0
 /usr/lib64/libsignon-extension.so.1.0.0
@@ -469,6 +464,10 @@ mv %{buildroot}/usr/lib/*.so* %{buildroot}/usr/lib64/
 /usr/lib64/libsignon-qt5.so.1
 /usr/lib64/libsignon-qt5.so.1.0
 /usr/lib64/libsignon-qt5.so.1.0.0
+/usr/lib64/signon/libexampleplugin.so
+/usr/lib64/signon/libpasswordplugin.so
+/usr/lib64/signon/libssotest2plugin.so
+/usr/lib64/signon/libssotestplugin.so
 
 %files license
 %defattr(0644,root,root,0755)
