@@ -4,7 +4,7 @@
 #
 Name     : signond
 Version  : ersion.8.60
-Release  : 1
+Release  : 2
 URL      : https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.60/signond-VERSION_8.60.tar.gz
 Source0  : https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.60/signond-VERSION_8.60.tar.gz
 Summary  : SignOn Framework client library development package
@@ -14,7 +14,6 @@ Requires: signond-bin = %{version}-%{release}
 Requires: signond-data = %{version}-%{release}
 Requires: signond-lib = %{version}-%{release}
 Requires: signond-license = %{version}-%{release}
-Requires: signond-plugins = %{version}-%{release}
 BuildRequires : buildreq-qmake
 BuildRequires : doxygen
 BuildRequires : graphviz
@@ -88,14 +87,6 @@ Group: Default
 license components for the signond package.
 
 
-%package plugins
-Summary: plugins components for the signond package.
-Group: Default
-
-%description plugins
-plugins components for the signond package.
-
-
 %prep
 %setup -q -n signond-VERSION_8.60
 cd %{_builddir}/signond-VERSION_8.60
@@ -111,11 +102,14 @@ test -r config.log && cat config.log
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1634569376
+export SOURCE_DATE_EPOCH=1634569542
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/signond
 cp %{_builddir}/signond-VERSION_8.60/COPYING %{buildroot}/usr/share/package-licenses/signond/4df5d4b947cf4e63e675729dd3f168ba844483c7
 %make_install
+## install_append content
+mv %{buildroot}/usr/lib/*.so* %{buildroot}/usr/lib64/
+## install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -203,10 +197,10 @@ cp %{_builddir}/signond-VERSION_8.60/COPYING %{buildroot}/usr/share/package-lice
 /usr/include/signond/signonui_interface.h
 /usr/lib/cmake/SignOnQt5/SignOnQt5Config.cmake
 /usr/lib/cmake/SignOnQt5/SignOnQt5ConfigVersion.cmake
-/usr/lib/libsignon-extension.so
-/usr/lib/libsignon-plugins-common.so
-/usr/lib/libsignon-plugins.so
-/usr/lib/libsignon-qt5.so
+/usr/lib64/libsignon-extension.so
+/usr/lib64/libsignon-plugins-common.so
+/usr/lib64/libsignon-plugins.so
+/usr/lib64/libsignon-qt5.so
 /usr/lib64/pkgconfig/SignOnExtension.pc
 /usr/lib64/pkgconfig/libsignon-qt5.pc
 /usr/lib64/pkgconfig/signon-plugins-common.pc
@@ -463,22 +457,19 @@ cp %{_builddir}/signond-VERSION_8.60/COPYING %{buildroot}/usr/share/package-lice
 /usr/lib/signon/libpasswordplugin.so
 /usr/lib/signon/libssotest2plugin.so
 /usr/lib/signon/libssotestplugin.so
+/usr/lib64/libsignon-extension.so.1
+/usr/lib64/libsignon-extension.so.1.0
+/usr/lib64/libsignon-extension.so.1.0.0
+/usr/lib64/libsignon-plugins-common.so.1
+/usr/lib64/libsignon-plugins-common.so.1.0
+/usr/lib64/libsignon-plugins-common.so.1.0.0
+/usr/lib64/libsignon-plugins.so.1
+/usr/lib64/libsignon-plugins.so.1.0
+/usr/lib64/libsignon-plugins.so.1.0.0
+/usr/lib64/libsignon-qt5.so.1
+/usr/lib64/libsignon-qt5.so.1.0
+/usr/lib64/libsignon-qt5.so.1.0.0
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/signond/4df5d4b947cf4e63e675729dd3f168ba844483c7
-
-%files plugins
-%defattr(-,root,root,-)
-/usr/lib/libsignon-extension.so.1
-/usr/lib/libsignon-extension.so.1.0
-/usr/lib/libsignon-extension.so.1.0.0
-/usr/lib/libsignon-plugins-common.so.1
-/usr/lib/libsignon-plugins-common.so.1.0
-/usr/lib/libsignon-plugins-common.so.1.0.0
-/usr/lib/libsignon-plugins.so.1
-/usr/lib/libsignon-plugins.so.1.0
-/usr/lib/libsignon-plugins.so.1.0.0
-/usr/lib/libsignon-qt5.so.1
-/usr/lib/libsignon-qt5.so.1.0
-/usr/lib/libsignon-qt5.so.1.0.0
