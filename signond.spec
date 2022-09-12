@@ -4,7 +4,7 @@
 #
 Name     : signond
 Version  : 8.61
-Release  : 6
+Release  : 7
 URL      : https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.61/signond-VERSION_8.61.tar.gz
 Source0  : https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.61/signond-VERSION_8.61.tar.gz
 Summary  : SignOn Framework client library development package
@@ -104,10 +104,10 @@ test -r config.log && cat config.log
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1649033588
+export SOURCE_DATE_EPOCH=1663011249
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/signond
-cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-licenses/signond/4df5d4b947cf4e63e675729dd3f168ba844483c7
+cp %{_builddir}/signond-VERSION_%{version}/COPYING %{buildroot}/usr/share/package-licenses/signond/4df5d4b947cf4e63e675729dd3f168ba844483c7
 %make_install
 
 %files
@@ -219,6 +219,7 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/libsignon-qt/html/authsession_8cpp_source.html
 /usr/share/doc/libsignon-qt/html/authsession_8h_source.html
 /usr/share/doc/libsignon-qt/html/bc_s.png
+/usr/share/doc/libsignon-qt/html/bc_sd.png
 /usr/share/doc/libsignon-qt/html/bdwn.png
 /usr/share/doc/libsignon-qt/html/classSignOn_1_1AuthService-members.html
 /usr/share/doc/libsignon-qt/html/classSignOn_1_1AuthService.html
@@ -266,6 +267,7 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/libsignon-qt/html/dir_61c9e5842729cb34568d93cb98ad85b9_dep.dot
 /usr/share/doc/libsignon-qt/html/dir_e68e8157741866f444e17edd764ebbae.html
 /usr/share/doc/libsignon-qt/html/doc.png
+/usr/share/doc/libsignon-qt/html/docd.png
 /usr/share/doc/libsignon-qt/html/doxygen.css
 /usr/share/doc/libsignon-qt/html/doxygen.svg
 /usr/share/doc/libsignon-qt/html/dynsections.js
@@ -308,8 +310,10 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/libsignon-qt/html/namespacemembers_eval.html
 /usr/share/doc/libsignon-qt/html/namespacemembers_type.html
 /usr/share/doc/libsignon-qt/html/nav_f.png
+/usr/share/doc/libsignon-qt/html/nav_fd.png
 /usr/share/doc/libsignon-qt/html/nav_g.png
 /usr/share/doc/libsignon-qt/html/nav_h.png
+/usr/share/doc/libsignon-qt/html/nav_hd.png
 /usr/share/doc/libsignon-qt/html/navtree.css
 /usr/share/doc/libsignon-qt/html/navtree.js
 /usr/share/doc/libsignon-qt/html/navtreedata.js
@@ -325,12 +329,17 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/libsignon-qt/html/signon_8h_source.html
 /usr/share/doc/libsignon-qt/html/signonerror_8h_source.html
 /usr/share/doc/libsignon-qt/html/splitbar.png
+/usr/share/doc/libsignon-qt/html/splitbard.png
 /usr/share/doc/libsignon-qt/html/sync_off.png
 /usr/share/doc/libsignon-qt/html/sync_on.png
 /usr/share/doc/libsignon-qt/html/tab_a.png
+/usr/share/doc/libsignon-qt/html/tab_ad.png
 /usr/share/doc/libsignon-qt/html/tab_b.png
+/usr/share/doc/libsignon-qt/html/tab_bd.png
 /usr/share/doc/libsignon-qt/html/tab_h.png
+/usr/share/doc/libsignon-qt/html/tab_hd.png
 /usr/share/doc/libsignon-qt/html/tab_s.png
+/usr/share/doc/libsignon-qt/html/tab_sd.png
 /usr/share/doc/libsignon-qt/html/tabs.css
 /usr/share/doc/libsignon-qt/html/todo.html
 /usr/share/doc/libsignon-qt/qch/signon.qch
@@ -342,6 +351,7 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/signon-plugins/html/annotated_dup.js
 /usr/share/doc/signon-plugins/html/authpluginif_8h_source.html
 /usr/share/doc/signon-plugins/html/bc_s.png
+/usr/share/doc/signon-plugins/html/bc_sd.png
 /usr/share/doc/signon-plugins/html/bdwn.png
 /usr/share/doc/signon-plugins/html/blobiohandler_8cpp_source.html
 /usr/share/doc/signon-plugins/html/blobiohandler_8h_source.html
@@ -370,6 +380,7 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/signon-plugins/html/dir_d823c49a50e17c23ae924694bd3125c3_dep.dot
 /usr/share/doc/signon-plugins/html/dir_e68e8157741866f444e17edd764ebbae.html
 /usr/share/doc/signon-plugins/html/doc.png
+/usr/share/doc/signon-plugins/html/docd.png
 /usr/share/doc/signon-plugins/html/doxygen.css
 /usr/share/doc/signon-plugins/html/doxygen.svg
 /usr/share/doc/signon-plugins/html/dynsections.js
@@ -398,8 +409,10 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/signon-plugins/html/namespacemembers_enum.html
 /usr/share/doc/signon-plugins/html/namespacemembers_eval.html
 /usr/share/doc/signon-plugins/html/nav_f.png
+/usr/share/doc/signon-plugins/html/nav_fd.png
 /usr/share/doc/signon-plugins/html/nav_g.png
 /usr/share/doc/signon-plugins/html/nav_h.png
+/usr/share/doc/signon-plugins/html/nav_hd.png
 /usr/share/doc/signon-plugins/html/navtree.css
 /usr/share/doc/signon-plugins/html/navtree.js
 /usr/share/doc/signon-plugins/html/navtreedata.js
@@ -408,23 +421,30 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/signon-plugins/html/resize.js
 /usr/share/doc/signon-plugins/html/signonplugincommon_8h_source.html
 /usr/share/doc/signon-plugins/html/splitbar.png
+/usr/share/doc/signon-plugins/html/splitbard.png
 /usr/share/doc/signon-plugins/html/sync_off.png
 /usr/share/doc/signon-plugins/html/sync_on.png
 /usr/share/doc/signon-plugins/html/tab_a.png
+/usr/share/doc/signon-plugins/html/tab_ad.png
 /usr/share/doc/signon-plugins/html/tab_b.png
+/usr/share/doc/signon-plugins/html/tab_bd.png
 /usr/share/doc/signon-plugins/html/tab_h.png
+/usr/share/doc/signon-plugins/html/tab_hd.png
 /usr/share/doc/signon-plugins/html/tab_s.png
+/usr/share/doc/signon-plugins/html/tab_sd.png
 /usr/share/doc/signon-plugins/html/tabs.css
 /usr/share/doc/signon-plugins/html/uisessiondata_8h_source.html
 /usr/share/doc/signon-plugins/html/uisessiondata__priv_8h_source.html
 /usr/share/doc/signon-plugins/qch/signon.qch
 /usr/share/doc/signon/html/bc_s.png
+/usr/share/doc/signon/html/bc_sd.png
 /usr/share/doc/signon/html/bdwn.png
 /usr/share/doc/signon/html/closed.png
 /usr/share/doc/signon/html/dir_61c9e5842729cb34568d93cb98ad85b9.html
 /usr/share/doc/signon/html/dir_61c9e5842729cb34568d93cb98ad85b9_dep.dot
 /usr/share/doc/signon/html/dir_e68e8157741866f444e17edd764ebbae.html
 /usr/share/doc/signon/html/doc.png
+/usr/share/doc/signon/html/docd.png
 /usr/share/doc/signon/html/doxygen.css
 /usr/share/doc/signon/html/doxygen.svg
 /usr/share/doc/signon/html/dynsections.js
@@ -438,8 +458,10 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/signon/html/menu.js
 /usr/share/doc/signon/html/menudata.js
 /usr/share/doc/signon/html/nav_f.png
+/usr/share/doc/signon/html/nav_fd.png
 /usr/share/doc/signon/html/nav_g.png
 /usr/share/doc/signon/html/nav_h.png
+/usr/share/doc/signon/html/nav_hd.png
 /usr/share/doc/signon/html/navtree.css
 /usr/share/doc/signon/html/navtree.js
 /usr/share/doc/signon/html/navtreedata.js
@@ -447,12 +469,17 @@ cp %{_builddir}/signond-VERSION_8.61/COPYING %{buildroot}/usr/share/package-lice
 /usr/share/doc/signon/html/open.png
 /usr/share/doc/signon/html/resize.js
 /usr/share/doc/signon/html/splitbar.png
+/usr/share/doc/signon/html/splitbard.png
 /usr/share/doc/signon/html/sync_off.png
 /usr/share/doc/signon/html/sync_on.png
 /usr/share/doc/signon/html/tab_a.png
+/usr/share/doc/signon/html/tab_ad.png
 /usr/share/doc/signon/html/tab_b.png
+/usr/share/doc/signon/html/tab_bd.png
 /usr/share/doc/signon/html/tab_h.png
+/usr/share/doc/signon/html/tab_hd.png
 /usr/share/doc/signon/html/tab_s.png
+/usr/share/doc/signon/html/tab_sd.png
 /usr/share/doc/signon/html/tabs.css
 /usr/share/doc/signon/qch/signon.qch
 
