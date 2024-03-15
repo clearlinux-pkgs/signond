@@ -1,5 +1,5 @@
 PKG_NAME := signond
-URL = https://gitlab.com/accounts-sso/signond/-/archive/VERSION_8.61/signond-VERSION_8.61.tar.gz
+URL = https://gitlab.com/nicolasfella/signond/-/archive/qt6/signond-qt6.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

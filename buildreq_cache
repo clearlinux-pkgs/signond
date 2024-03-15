@@ -1,5 +1,4 @@
-8.61
+qt6
 doxygen
 graphviz
-pkgconfig(gl)
-qttools-dev
+qt6tools-dev
